@@ -2,10 +2,10 @@ cask "gpcloud" do
   version "1.0.0"
   sha256 "121b0c5f471fbc93a45f739e454222cfa5eccb391688d04d98a28125f9f9832b"
 
-  url "https://github.com/azs06/gpcloud-mac/releases/download/v#{version}/GPCloud-#{version}-macOS.zip"
+  url "https://github.com/azs06/gpcloud-desktop/releases/download/v#{version}/GPCloud-#{version}-macOS.zip"
   name "GP Cloud for Mac"
   desc "Unofficial client for Grameenphone GP Cloud storage"
-  homepage "https://github.com/azs06/gpcloud-mac"
+  homepage "https://github.com/azs06/gpcloud-desktop"
 
   livecheck do
     url :url
