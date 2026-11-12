@@ -12,15 +12,14 @@ cask "gpcloud" do
     strategy :github_latest
   end
 
-  depends_on macos: ">= :sonoma"
+  depends_on macos: :sonoma
 
   app "GPCloud.app"
 
-  # The app is ad-hoc signed, not notarized; clear the download quarantine so it opens normally.
-  postflight do
-    system_command "/usr/bin/xattr",
-                   args: ["-dr", "com.apple.quarantine", "#{appdir}/GPCloud.app"],
-                   sudo: false
+  # The app is ad-hoc signed, not notarized: clear the download quarantine so it opens normally.
+  postflight_steps do
+    run "/usr/bin/xattr",
+        args: ["-dr", "com.apple.quarantine", "{{appdir}}/GPCloud.app"]
   end
 
   uninstall quit: "io.github.azs06.gpcloud-mac"
