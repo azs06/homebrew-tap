@@ -7,9 +7,11 @@ cask "gpcloud" do
   desc "Unofficial client for Grameenphone GP Cloud storage"
   homepage "https://github.com/azs06/gpcloud-desktop"
 
+  # The repo also publishes Windows releases (windows-v*), so match only macOS tags.
   livecheck do
-    url :url
-    strategy :github_latest
+    url "https://github.com/azs06/gpcloud-desktop.git"
+    regex(/^(?:macos-)?v?(\d+(?:\.\d+)+)$/i)
+    strategy :git
   end
 
   depends_on macos: :sonoma
